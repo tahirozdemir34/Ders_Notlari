@@ -8,7 +8,7 @@ It is the computational part of the ability to achive goals in the world. Variyn
 
 **An agent** is an entity that perceives its env. through sensors and acts through effectors(actuators)
 
->>Human, programs, robots
+>Human, programs, robots
 
 agent = architecture + program
 
