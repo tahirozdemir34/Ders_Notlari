@@ -1,7 +1,7 @@
 # AI_Notes
 
 ## What is AI?
-It is the science and engineering of making intelligent machines, especially intelligent computer programs. It is related to the similar task of using computers to understand human intelligence, but AI does not have to cinfine itself to methods that are biologically observable.
+It is the science and engineering of making intelligent machines, especially intelligent computer programs. It is related to the similar task of using computers to understand human intelligence, but AI does not have to confine itself to methods that are biologically observable.
 
 ## What is intelligence?
 It is the computational part of the ability to achive goals in the world. Variyng kinds and degrees of int. occur in people, many animals and some machines.
@@ -77,7 +77,6 @@ Simple Reflex Agents       |
 ![Simple Reflex Agents](https://i.hizliresim.com/ROpnAR.jpg "Simple Reflex Agents")  |
 |Condition-action (if/then) rule|
 |Dont have memory of past world states|
-|Deliberate (ihtiyatlı) instead of reactive.|
 | 	> Example: Vacuum cleaner >> Function([location, status]) return action|
 
 
@@ -87,7 +86,6 @@ Model-based Reflex Agents       |
 ![Model-based Reflex Agents](https://i.hizliresim.com/3plE5M.jpg "Model-based Reflex Agents")  |
 |The most effective way to handle parital observability. Agent keep track of the part of the world it cant see now.|
 |Have internal state used to keep track of past states|
-|Deliberate (ihtiyatlı) instead of reactive.|
 | Example: Car braking: the internal state is not too extensive|
 |Changing lanes: the internal state is necessary, to know the agents need to keep track og where other cars are if cant see them at once.|
 
@@ -174,7 +172,7 @@ A problem defined with:
 - {O}: {ci -> cj, for some i and j} (travel between cities)
 - gij : Distance? Time?
 
-## Seacrh Strategies
+## Search Strategies
 - Picking the order of node expansion
 - Evalation (değerlendirme):
 	+ Completeness: Does it always find a solution if one exists?
@@ -200,7 +198,7 @@ A problem defined with:
 - Implementation: fringe is a FIFO queue
 - Properties
 	+ Complete: Yes ( if b *branching factor* is finite)
-	+ Time    : 1 + b + b^2 + b^3 + ... + b ( (b^d) - 1 ) = O(b^(d+1))
+	+ Time    : 1 + b + b^2 + b^3 + ... + b ( (b^d ) - 1 ) = O(b^(d+1) )
 	+ Space   : O(b^(d+1)) *keeps every node in memory*
 	+ Space is the bigger problem than time
 	+ Optimal : Yes (if cost = 1 per step)
@@ -211,7 +209,7 @@ A problem defined with:
 - Equivalent to breadth-first if step costs all equivalence
 - Properties:
 	+ Complete: Yes ( if step cost >= ε)
-	+ Time    : # of nodes with g <= cost of optimal solution, O(b^(ceiling(C\*/ ε))) where C\* is the cost of the optimal solution
+	+ Time    : # of nodes with g <= cost of optimal solution, O(b^(ceiling(C */ ε))) where C\* is the cost of the optimal solution
 	+ Space   : # of nodes with g ≤ cost of optimal solution, O(b^(ceiling(C*/ ε)))
 	+ Optimal : Yes *nodes expanded in increasing order of g(n)*
 
@@ -222,7 +220,7 @@ A problem defined with:
 	+ Complete: No *fails in infinite-depth spaces, spaces with loops*
 		* Modify to avoid repeated states along path.
 		* Complete in finite spaces
-	+ Time    : O(b^m) *terrible if m is much larger than d*
+	+ Time    : O(b^m ) *terrible if m is much larger than d*
 		* But if solutions are dense(yoğun), may be much faster than breadth-first
 	+ Space   : O(bm) *i.e. linear space*
 	+ Optimal : No
@@ -234,14 +232,14 @@ A problem defined with:
 - Number of nodes generated in a depth-limited search to depth d with branching factor b:
 	+ N(DLS) = b^0 + b^1 + b^2 + ... + b^d
 - Number of nodes generated in an iterative deepening search to depth d with branching factor b:
-	+ N(IDS): (d+1) * (b^0) + d * (b^2) + (d-1) * (b^2) + ... + 2 * b^(d-1) + b^d
+	+ N(IDS): (d+1) * (b^0 ) + d * (b^1 ) + (d-1) * (b^2 ) + ... + 2 * b^(d-1 ) + b^d
 - For b = 10, d =5:
 	+ N(DLS) = 1 + 10 + 100 + .... + 100000 = 111111
 	+ N(IDS) = 6 + 50 + 400 + .... + 100000 = 123456
 	+ Overhead = (123456 - 111111) / 111111 = %11
 - Properties:
 	+ Complete: Yes
-	+ Time: (d+1) * (b^0) + d * (b^2) + ... + 2 * b^(d-1) + b^d = O(b^d)
+	+ Time: (d+1) * (b^0 ) + d * (b^2 ) + ... + 2 * b^(d-1) + b^d = O(b^d )
 	+ Space: O(b^d)
 	+ Optimal: Yes *if step cost = 1*
 
@@ -327,8 +325,8 @@ In this example *f(n)=g(n)*
 - Greedy best-first search expands the node that **appears** to be closest to goal
 - Properties:
 	+ Complete: No *can get stuck in loops*
-	+ Time: O(b^m) *but good heuristic can give dramaric improvement*
-	+ Space: O(b^m) *keeps all nodes in memory* 
+	+ Time: O(b^m ) *but good heuristic can give dramaric improvement*
+	+ Space: O(b^m ) *keeps all nodes in memory* 
 	+ Optimal: No
 
 ## A* search
@@ -340,7 +338,7 @@ In this example *f(n)=g(n)*
 - OPEN LIST, CLOSED LIST (?)
 - Properties:
 	+ Complete : Yes *unless there are infinitely many nodes with f<=f(G)*
-	+ Time: O(n^2)
+	+ Time: O(n^2 )
 	+ Space : Keep all nodes in memory
 	+ Optimal: Yes
 
