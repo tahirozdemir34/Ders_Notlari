@@ -1,5 +1,3 @@
-
-
 - [Ch1.pptx](#ch1pptx)
 	- [What is software?](#what-is-software)
 	- [What are the attributes of good software?](#what-are-the-attributes-of-good-software)
