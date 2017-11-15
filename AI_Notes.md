@@ -1,3 +1,37 @@
+- [AI_Notes](#ainotes)
+	- [What is AI?](#what-is-ai)
+	- [What is intelligence?](#what-is-intelligence)
+	- [Rationality vs perfection](#rationality-vs-perfection)
+	- [Environments](#environments)
+	- [Agent Types](#agent-types)
+	- [Summary of 2](#summary-of-2)
+- [3-Solving Problems By Searching](#3-solving-problems-by-searching)
+	- [Problem-solving agents](#problem-solving-agents)
+	- [Searching for Solutions:](#searching-for-solutions)
+		- [State vs Node](#state-vs-node)
+	- [Example: Romania](#example-romania)
+	- [Search Strategies](#search-strategies)
+	- [Uninformed Search](#uninformed-search)
+		- [Breadth-first](#breadth-first)
+		- [Uniform-cost Seacrh](#uniform-cost-seacrh)
+		- [Depth-first Seacrh](#depth-first-seacrh)
+		- [Depth-limited Seacrh](#depth-limited-seacrh)
+		- [Iterative Deepening Search](#iterative-deepening-search)
+	- [Summary of Algorithms](#summary-of-algorithms)
+	- [Graph search](#graph-search)
+	- [Summary of 3](#summary-of-3)
+- [Informed search (Heuristics) algorithms](#informed-search-heuristics-algorithms)
+	- [Best-first search](#best-first-search)
+	- [A heuristic funciton](#a-heuristic-funciton)
+	- [Romania with step costs](#romania-with-step-costs)
+	- [Greedy best-first search](#greedy-best-first-search)
+	- [A* search](#a-search)
+	- [Admissible heuristic](#admissible-heuristic)
+	- [Consistent(tutarlı) heuristic](#consistenttutarl-heuristic)
+	- [Iterative deepening A* (IDA)](#iterative-deepening-a-ida)
+	- [IDA* vs A*](#ida-vs-a)
+
+<!-- /TOC -->
 # AI_Notes
 
 ## What is AI?
@@ -12,7 +46,7 @@ It is the computational part of the ability to achive goals in the world. Variyn
 
 agent = architecture + program
 
-**A rational agent** is one that acts so as to achive the best outcome or, when there is uncertainity, the best expected outcome.
+**A rational agent** is one that acts so as to achieve the best outcome or, when there is uncertainity, the best expected outcome.
 
 **Rational behavior**: doing the right thing
 
@@ -20,7 +54,7 @@ agent = architecture + program
 
 Performance measure must be designed according to what one actually wants in the env.
 
-## Rationality vs perfection 
+## Rationality vs perfection
 - Perfection means all-knowing with infinite knowledge
 - Rationality maximizes "expected" performance
 - Perfection maximizes "actual" performance
@@ -72,7 +106,7 @@ Aim: find a way to implement the rational agent function
 	- Need long time to learn the table entries
 
 ## Agent Types
-Simple Reflex Agents       | 
+Simple Reflex Agents       |
 :-------------------------:|
 ![Simple Reflex Agents](https://i.hizliresim.com/ROpnAR.jpg "Simple Reflex Agents")  |
 |Condition-action (if/then) rule|
@@ -81,7 +115,7 @@ Simple Reflex Agents       |
 
 
 
-Model-based Reflex Agents       | 
+Model-based Reflex Agents       |
 :-------------------------:|
 ![Model-based Reflex Agents](https://i.hizliresim.com/3plE5M.jpg "Model-based Reflex Agents")  |
 |The most effective way to handle parital observability. Agent keep track of the part of the world it cant see now.|
@@ -89,7 +123,7 @@ Model-based Reflex Agents       |
 | Example: Car braking: the internal state is not too extensive|
 |Changing lanes: the internal state is necessary, to know the agents need to keep track og where other cars are if cant see them at once.|
 
-Goal-based Agents       | 
+Goal-based Agents       |
 :-------------------------:|
 ![Goal-based Agents](https://i.hizliresim.com/6yvJBv.jpg "Goal-based Agents")  |
 | Choose acts so as to ach. a goal|
@@ -98,13 +132,13 @@ Goal-based Agents       |
 | May hove to consider long seq. of pos. acts before deciding if goal is achived|
 |Involves consideration of the future "what will happen if I do... ?"|
 
-Utility-based Agents      | 
+Utility-based Agents      |
 :-------------------------:|
 ![Utility-based Agents](https://i.hizliresim.com/pGN6Aa.jpg "Utility-based Agents")  |
 | Allows decisions comparing choice between conflicting goals, and choice between likelihood of success and importance of goal (if ach. is uncertain)|
 
 
-Learning Agents      | 
+Learning Agents      |
 :-------------------------:|
 ![Learning Agents](https://i.hizliresim.com/WGp7z8.jpg "Learning Agents")  |
 | Learning Element: Responsible for making improvements. Given an agent design, learning mechanisms can be constructed to improve every part of the agent.|
@@ -245,7 +279,7 @@ A problem defined with:
 
 ## Summary of Algorithms
 - **Breadth-first search**: The space complexity makes it impractical in
-most cases. 
+most cases.
 - **Uniform-cost search** is similar to Breadth-first search (expand with
 lowest cost g(n)).
 - **Depth limited search** imposes a fixed depth limit on a depth-first
@@ -269,7 +303,7 @@ is represented by a state space.
 - Search algorithms are judged on the basis of completeness, optimality,
 time complexity, and space complexity.
 - When the state space is a graph rather than a tree, the GRAPH-SEARCH
-algortihm eliminates all duplicate states. 
+algortihm eliminates all duplicate states.
 
 # Informed search (Heuristics) algorithms
 - Best-first search
@@ -302,7 +336,7 @@ algortihm eliminates all duplicate states.
 >“A rule of thumb, simplification, or educated guess that reduces or limits the search for solutions in domains that are difficult and poorly understood.”
 
 - h(n) : estimate cost of the cheapest path from node n to goal node.
-- If n is goal then h(n) = 0 
+- If n is goal then h(n) = 0
 - Aim is the minimising the total cost from start to goal
 
 f(n) = g(n) + h(n)
@@ -326,7 +360,7 @@ In this example *f(n)=g(n)*
 - Properties:
 	+ Complete: No *can get stuck in loops*
 	+ Time: O(b^m ) *but good heuristic can give dramaric improvement*
-	+ Space: O(b^m ) *keeps all nodes in memory* 
+	+ Space: O(b^m ) *keeps all nodes in memory*
 	+ Optimal: No
 
 ## A* search
@@ -353,7 +387,7 @@ In this example *f(n)=g(n)*
 - A heuristic is **consistent** if for every node n, every successor n' of n generated by and action a,
 	+ h(n) <= c(n,a,n') + h(n')
 - if h is consistent we have:
-	+ f(n') = g(n') + h(n')	
+	+ f(n') = g(n') + h(n')
 	+ = g(n) + c(n,a,n') + h(n')
 	+ => g(n) + h(n)
 	+ = f(n)
